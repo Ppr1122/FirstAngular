@@ -18,9 +18,14 @@ export class SignupComponent implements OnInit {
     email: new FormControl,
     phone: new FormControl,
     City: new FormControl
-  })
+  });
+  onSubmit(){
+    this.SignUp.reset;
+    alert("Registered Successfulyy.");
+    console.log(this.SignUp.value);
+  }
   NewUser(){
-  this.router.navigate(["login"]);
+  this.router.navigate(["/login"]);
   }
 
 }

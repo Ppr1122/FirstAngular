@@ -4,7 +4,7 @@
         <h2>LOGIN</h2>
     </div>
  <form>
-    <form [formGroup]="login" (ngSubmit)="CheckUser">
+    <form [formGroup]="login">
     <div>
         <mat-form-field  class="full-width" appearance="outline">
             <mat-label>Username:</mat-label>
@@ -18,15 +18,17 @@
             <input matInput placeholder="Password"  name="password" type="password" formControlName="pwd" required>
           
         </mat-form-field>
-        <span class="aLink">Forgot Password?</span>
+        <span class="aLink"><a href="#">Forgot Password?</a></span>
         </div>
        <p>
-       <button mat-raised-button type="submit">Login</button>
+       <button mat-raised-button type="submit" (click)="onSubmit()">Login</button>
+       
        </p>
        <!--<span *ngIf="show"> <button mat-button color="accent">Login success !!</button>
         </span>-->
  </form>
- <a routerLink="/Signup" class="btn btn-link">New User</a>
+ <a routerLink="/Signup" class="btn btn-link" (click)="CheckUser">New User</a>
+ 
  </form>
        
  </mat-card-content>
