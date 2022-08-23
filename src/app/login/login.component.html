@@ -9,8 +9,8 @@
         <mat-form-field  class="full-width" appearance="outline">
             <mat-label>Username:</mat-label>
             <input matInput  placeholder="Username"  name="username" type="text" formControlName="uname" required> 
-           <mat-error *ngif="login.get('uname').errors?.required">Required Username</mat-error>
-        </mat-form-field>
+           </mat-form-field>
+        <p class="text-danger" *ngIf="login.controls['uname'].dirty && login.hasError('required','email')">*Email is required</p>
     </div>
         <div>
         <mat-form-field  class="full-width" appearance="outline">
@@ -18,17 +18,16 @@
             <input matInput placeholder="Password"  name="password" type="password" formControlName="pwd" required>
           
         </mat-form-field>
-        <span class="aLink"><a href="#">Forgot Password?</a></span>
+        <p class="text-danger" style="font-size: small;" *ngIf="login.controls['pwd'].dirty && login.hasError('required','password')">* required Password </p>
+        <span class="aLink"><a href="/home">Forgot Password?</a></span>
+    
         </div>
        <p>
        <button mat-raised-button type="submit" (click)="onSubmit()">Login</button>
-       
        </p>
-       <!--<span *ngIf="show"> <button mat-button color="accent">Login success !!</button>
-        </span>-->
+      
  </form>
- <a routerLink="/Signup" class="btn btn-link" (click)="CheckUser">New User</a>
- 
+ <a mat-list-item routerLink="/signup" routerLinkActive="list-item-active"> New User</a>
  </form>
        
  </mat-card-content>
